@@ -11,9 +11,9 @@ mov ah, 1
 int 21h
 mov bl, al
 
-cmp bl, 65
+cmp bl, 'a'
 je asterisco
-cmp bl, 97
+cmp bl, 'A'
 je asterisco
 
 mov ah, 2
@@ -23,7 +23,10 @@ int 21h
 mov ah, 2
 mov dl, bl
 int 21h
-jmp contador
+mov dl, 10
+int 21h
+loop leitura
+jmp fim
 
 asterisco:
 mov ah, 2
@@ -32,13 +35,9 @@ int 21h
 mov ah, 2
 mov dl, '*'
 int 21h
-
-contador:
-mov ah, 2
 mov dl, 10
 int 21h
-dec cx
-jnz leitura
+loop leitura
 
 fim:
 mov ah, 4ch
