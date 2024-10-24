@@ -43,21 +43,21 @@ main proc
 main endp 
 
 leitura proc
-    lea bx, vetor
+    xor bx, bx
     mov ah, 1
 let:
     int 21h
-    mov [bx], al
+    mov vetor [bx], al
     inc bx
 loop let
 ret
 leitura endp
 
 confere proc
-    lea bx, vetor
+    xor bx, bx
     xor dx, dx
 conferir:
-    mov al, [bx]
+    mov al, vetor[bx]
     test al, 01h 
     jz zero
     inc dh ; contador impar
@@ -69,5 +69,4 @@ zero:
 loop conferir
 ret
 confere endp
-
 end main
