@@ -11,8 +11,8 @@ main proc
     mov ax, @data
     mov ds, ax
 
-    xor cl, cl
-    xor dx, dx
+    xor cl, cl ; contador par
+    xor dx, dx ; dl = contador ímpar
     mov di, 10
 
 confere:
@@ -49,7 +49,6 @@ fim:
     int 21h
     mov ah, 2
     pop dx
-    and dx, 000Fh
     or dl, 30h
     int 21h
 
