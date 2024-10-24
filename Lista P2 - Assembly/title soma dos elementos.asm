@@ -10,8 +10,10 @@ main proc
     mov ds, ax
 
     mov cx, 8
+    lea bx, vetor
     call leitura
     mov cx, 8
+    lea bx, vetor
     call soma
 
     push dx
@@ -28,7 +30,7 @@ main proc
 main endp
 
 leitura proc
-    lea bx, vetor
+    ; lea bx, vetor
     mov ah, 1
 ler:
     int 21h
@@ -42,7 +44,7 @@ soma proc
     xor dx, dx
 somar:
     mov al, dh
-    lea bx, vetor
+    ;lea bx, vetor
     xlat
     add dl, al
     inc dh
