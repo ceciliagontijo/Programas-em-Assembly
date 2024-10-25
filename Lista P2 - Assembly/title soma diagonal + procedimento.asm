@@ -5,6 +5,7 @@ title soma diagonal + procedimento
     matriz  db 3 dup(?)
             db 3 dup(?)
             db 3 dup(?)
+    msg db 10, 13, 'Soma da diagonal = $'
 .code
 main proc 
     mov ax, @data
@@ -28,6 +29,7 @@ l1:
     xor si, si
 l2:
     int 21h
+    and al, 0Fh
     mov matriz [bx][si], al
     inc si
 loop l2
@@ -46,6 +48,11 @@ soma:
     inc si
     add bx, 3
 loop soma
+    push dx
+    mov ah, 9
+    lea dx, msg
+    int 21h
+    pop dx
     mov ah, 2
     or dl, 30h
     int 21h

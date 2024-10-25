@@ -63,10 +63,12 @@ conferir:
     inc dh ; contador impar
     inc bx
 loop conferir 
+jmp fim
 zero: 
     inc dl ; contador par
     inc bx
 loop conferir
+fim:
 ret
 confere endp
 end main
