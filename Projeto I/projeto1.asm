@@ -62,8 +62,9 @@ ENDM
             db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     
-    .linha db 10, 13, 'Informe a linha desejada para atirar: $'
-    .coluna db 10, 13, 'Informe a coluna desejada para atirar: $'
+    .linha db 10, 13, 'Informe a linha desejada para atirar: (0/19)$'
+    .coluna db 10, 13, 'Informe a coluna desejada para atirar: (0/19)$'
+    novamente db 10, 13, 'Esse valor eh invalido, digite novamente: $'
     encou db 10, 13, 'Voce acertou um encouracado!!!$'
     frag db 10, 13, 'Voce acertou uma fragata!!!$'
     subma db 10, 13, 'Voce acertou um submarino!!!$'
@@ -94,12 +95,23 @@ linha:
     int 21h
     and al, 0Fh
     cmp al, 13
-    je sai
+    je confere_linha
     xor ah, ah
     pop bx
     add bx, ax
 jmp linha
+confere_linha:
+    cmp bx, 19
+    jbe sai
+    mov ah, 9
+    lea dx, novamente
+    int 21h
+    xor bx, bx
+    jmp linha
 sai:
+    mov ax, 20
+    mul bx
+    mov bx, ax
     push bx
     mov ah, 9
     lea dx, .coluna             ;entrada decimal das colunas 
@@ -114,11 +126,19 @@ coluna:
     int 21h
     and al, 0Fh
     cmp al, 13
-    je sai2
+    je confere_coluna
     xor ah, ah
     pop bx
     add bx, ax
 jmp coluna
+confere_coluna:
+    cmp bx, 19
+    jbe sai2
+    mov ah, 9
+    lea dx, novamente
+    int 21h
+    xor bx, bx
+    jmp coluna
 sai2:
     mov si, bx                  
     pop ax
@@ -296,7 +316,4 @@ end main
 
     
 
-
-;contadores para embarcacoes 
-;verificar se existe linha e coluna 
 ;melhorar escritas e detalhes 
