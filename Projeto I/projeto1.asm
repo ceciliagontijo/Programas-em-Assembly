@@ -144,7 +144,7 @@ sai2:
     pop ax
     pop bx
     mov ch, matriz[bx][si]          ;movendo para al para comparar o numero 
-    cmp ch, 1 
+    cmp ch, 1                      
     je um1
     cmp ch, 2
     je dois2
@@ -193,7 +193,6 @@ seis6:
     cmp cl, 4
     jne saida
     resultado @quatro
-  
 saida:
     pula_linha
     xor bx, bx
