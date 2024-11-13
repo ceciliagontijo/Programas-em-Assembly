@@ -30,6 +30,90 @@ resultado macro numero
 ENDM
 .data
     m_embarcacoes db  20 DUP (0)
+                  db  20 DUP (0) 
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  20 DUP (0)  
+                  db  20 DUP (0)
+                  db  20 DUP (0) 
+                  db  20 DUP (0)
+                  db  20 DUP (0)  
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+
+    m_embarcacoes1 db  20 DUP (0)
+                  db  0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0  
+                  db  20 DUP (0)
+                  db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0  
+                  db  0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                  db  0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0  
+                  db  0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                  db  6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                  db  6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                  db  20 DUP (0)
+
+     m_embarcacoes2 db  20 DUP (0)
+                  db  0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0  
+                  db  20 DUP (0)
+                  db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0  
+                  db  0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                  db  0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0  
+                  db  0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                  db  6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                  db  6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                  db  20 DUP (0)
+
+     m_embarcacoes3 db  20 DUP (0)
+                  db  0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0  
+                  db  20 DUP (0)
+                  db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0  
+                  db  0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                  db  0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0  
+                  db  0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                  db  20 DUP (0)
+                  db  20 DUP (0)
+                  db  6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                  db  6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                  db  6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                  db  20 DUP (0)
+
+     m_embarcacoes4 db  20 DUP (0)
                   db  0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 
                   db  20 DUP (0)
                   db  20 DUP (0)
@@ -71,6 +155,7 @@ ENDM
             db  20 DUP (0)
             db  20 DUP (0)
 
+    escolha_tabuleiro db 10, 13, 'Qual tabuleiro voce deseja jogar? Ha 4 disponiveis.$'
     l_digite_linha db 10, 13, 'Informe a linha desejada para atirar, entre 1 e 20: $'
     l_digite_coluna db 10, 13, 'Informe a coluna desejada para atirar, entre 1 e 20: $'
     l_digite_novamente db 10, 13, 'Esse nao esta no intervalo, digite novamente: $'
@@ -89,10 +174,84 @@ ENDM
     l_essaposicaojafoiacertada db 10,13, 'Essa posicao ja foi acertada :($'
     l_venceu db 10,13, 'Todas embarcacoes foram afundadas, voce venceu!!!!$'
 
+
 .code
 main proc 
     mov ax, @data
     mov ds, ax
+
+    xor bx, bx
+    mov di, 20
+
+tabuleiros:
+    mov ah, 9
+    lea dx, escolha_tabuleiro
+    int 21h
+    mov ah, 1
+    int 21h
+    and al, 0Fh
+    cmp al, 1
+    jb tabuleiros
+    cmp al, 4
+    ja tabuleiros
+    cmp al, 1
+    je tabuleiro1
+    cmp al, 2
+    je tabuleiro2
+    cmp al, 3 
+    je tabuleiro3
+    cmp al, 4
+    je tabuleiro4
+
+tabuleiro1:
+    mov cx, 20
+    xor si, si
+move1:
+    mov al, m_embarcacoes1[bx][si]
+    mov m_embarcacoes[bx][si], al
+    inc si
+loop move1
+    add bx, 20
+    dec di
+    jnz tabuleiro1
+    jmp r_jogo
+tabuleiro2:
+    mov cx, 20
+    xor si, si
+move2:
+    mov al, m_embarcacoes2[bx][si]
+    mov m_embarcacoes[bx][si], al
+    inc si
+loop move2
+    add bx, 20
+    dec di
+    jnz tabuleiro2
+    jmp r_jogo
+
+tabuleiro3:
+    mov cx, 20
+    xor si, si
+move3:
+    mov al, m_embarcacoes3[bx][si]
+    mov m_embarcacoes[bx][si], al
+    inc si
+loop move3
+    add bx, 20
+    dec di
+    jnz tabuleiro3
+    jmp r_jogo
+
+tabuleiro4:
+    mov cx, 20
+    xor si, si
+move4:
+    mov al, m_embarcacoes4[bx][si]
+    mov m_embarcacoes[bx][si], al
+    inc si
+loop move4
+    add bx, 20
+    dec di
+    jnz tabuleiro4
 
 r_jogo:
     mov ah, 9
