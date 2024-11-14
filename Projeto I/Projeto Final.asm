@@ -29,9 +29,10 @@ resultado macro numero
     pop ax
 ENDM
 .data
-    m_embarcacoes db  20 DUP (0)
-                  db  20 DUP (0) 
-                  db  20 DUP (0)
+    impressaolinhas db 0
+    m_embarcacoes db 20 DUP (0)
+                  db 20 DUP (0) 
+                  db 20 DUP (0)
                   db  20 DUP (0)
                   db  20 DUP (0)
                   db  20 DUP (0)
@@ -156,7 +157,7 @@ ENDM
             db  20 DUP (0)
 
     escolha_tabuleiro db 10, 13, 'Qual tabuleiro voce deseja jogar? Ha 4 disponiveis.$'
-    l_digite_linha db 10, 13, 'Informe a linha desejada para atirar, entre 1 e 20: $'
+    l_digite_linha db 10, 13, 'Informe a linha desejada para atirar, entre a e t: $'
     l_digite_coluna db 10, 13, 'Informe a coluna desejada para atirar, entre 1 e 20: $'
     l_digite_novamente db 10, 13, 'Esse nao esta no intervalo, digite novamente: $'
     l_arcertou_encouracado db 10, 13, 'Voce acertou um encouracado!!!$'
@@ -263,16 +264,9 @@ r_jogo:
 r_linha_leitura:
     mov ah,1
     int 21h
-    cmp al,13
-    je r_confere_linha
-    and al,0Fh
-    xor ah,ah
-    push ax
-    mov ax,10
-    mul bx
-    pop bx
-    add bx,ax
-jmp r_linha_leitura
+    sub al, 60h
+    xor ah, ah
+    mov bx, ax
 ;confere se a linha digitada está dentro do intervalo 
 r_confere_linha:
     sub bx, 1
@@ -309,6 +303,7 @@ r_coluna_leitura:
     pop bx
     add bx,ax
 jmp r_coluna_leitura
+
 ;confere se a coluna digitada está dentro do intervalo 
 r_confere_coluna:
     sub bx, 1
@@ -403,21 +398,98 @@ r_eliminou_hidroaviao_2:
 ;impressão da matriz atualizada, com os tiros dados
 r_saida:
     pula_linha
+    xor al, al
+    mov di,15      ; imprime do 1 ao 15
+    espaco
+    espaco
+    espaco
+confere:
+    xor ah, ah
+    inc ax
+    and al, 0Fh
+    cmp ax, 10
+    jae baixo
+    espaco
+baixo:
+    mov bx, 10
+    xor cx, cx
+    push ax
+processo:
+    xor dx, dx
+    div bx
+    push dx
+    inc cx
+    cmp ax, 0
+    je imprimed
+jmp processo
+imprimed:
+    mov ah, 2
+    pop dx
+    or dl, 30h
+    int 21h
+loop imprimed
+    espaco
+    dec di
+    pop ax
+    jnz confere
+mov di, 5        ; imprime do 16 ao 20
+confere2:
+    xor ah, ah
+    inc ax
+    mov bx, 10
+    xor cx, cx
+    push ax
+processo2:
+    xor dx, dx
+    div bx
+    push dx
+    inc cx
+    cmp ax, 0
+    je imprimed2
+jmp processo2
+imprimed2:
+    mov ah, 2
+    pop dx
+    or dl, 30h
+    int 21h
+loop imprimed2
+    espaco
+    dec di
+    pop ax
+    jnz confere2
+
+pos:
     xor bx, bx
     mov di, 20
+    pula_linha
+    pula_linha
+
+    xor bx, bx
+    mov di, 20
+    mov al, 97
 r_linha_impressao:
     xor si, si
     mov cx, 20
+    mov ah, 2
+    mov dl, al
+    int 21h
+    push ax
+    espaco
+    espaco
+    espaco
 r_coluna_impressao:
     mov ah, 2
     mov dl, m_tiros[bx][si]
     or dl, 30h
     int 21h
     espaco
+    espaco
     inc si
 loop r_coluna_impressao
     pula_linha
     add bx, 20
+    pop ax
+    inc al
     dec di
 jnz r_linha_impressao
 cmp v_acertos[6],19
