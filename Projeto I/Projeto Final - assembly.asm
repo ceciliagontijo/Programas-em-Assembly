@@ -1,4 +1,4 @@
-title projeto1
+title Projeto Final - assembly
 .model small
 .stack 0100h
 
@@ -32,7 +32,7 @@ string macro s ;macro para impressao de strings
     pop ax
 ENDM
 
-numero macro n
+numero macro n ;macro para imprimir numeros
     push ax ;salva dados nos registradores
     push dx
     mov ah, 02h
@@ -43,7 +43,7 @@ numero macro n
     pop ax
 ENDM
 
-caracter macro c
+caracter macro c ;macro para imprimir numeros
     push ax ;salva dados nos registradores
     push dx
     mov ah, 02h
@@ -64,12 +64,8 @@ clearscreen macro ;macro para limpar a tela
 endm
 
 .data
-       
-    l0 db '-----------------------------$' ;abertura do jogo
-    l1 db ' $'
-    l2 db '=======BATALHA NAVAL=========$'
-    l3 db ' $'
-    l4 db '-----------------------------$'
+
+    l2 db '=======BATALHA NAVAL=========$' ;abertura do jogo
 
      m_embarcacoes db 20 DUP (0) ;matriz auxiliar
                    db 20 DUP (0) 
@@ -92,68 +88,68 @@ endm
                    db 20 DUP (0)
                    db 20 DUP (0)
 
-    m_embarcacoes1 db  20 DUP (0)                                                   ;a                                     
-                   db  0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;b
-                   db  20 DUP (0)                                                   ;c
-                   db  20 DUP (0)                                                   ;d
-                   db  20 DUP (0)                                                   ;e
-                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0   ;f
+    m_embarcacoes1 db  20 DUP (0)                                                   ;a
+                   db  20 DUP (0)                                                   ;b
+                   db  0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0   ;c
+                   db  0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;d
+                   db  0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;e
+                   db  20 DUP (0)                                                   ;f
                    db  20 DUP (0)                                                   ;g
                    db  20 DUP (0)                                                   ;h
-                   db  0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;i
-                   db  20 DUP (0)                                                   ;j
-                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0   ;k
-                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;l
-                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;m
-                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;n
+                   db  0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;i
+                   db  0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;j
+                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0   ;k
+                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 0, 0, 0   ;l
+                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0   ;m
+                   db  20 DUP (0)                                                   ;n
                    db  20 DUP (0)                                                   ;o
                    db  20 DUP (0)                                                   ;p
-                   db  6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;q
-                   db  6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;r
-                   db  6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;s
+                   db  0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;q
+                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1   ;r
+                   db  20 DUP (0)                                                   ;s
                    db  20 DUP (0)                                                   ;t
 
     m_embarcacoes2 db  20 DUP (0)                                                   ;a
-                   db  0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;b
-                   db  20 DUP (0)                                                   ;c
-                   db  20 DUP (0)                                                   ;d
-                   db  20 DUP (0)                                                   ;e
-                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0   ;f
-                   db  20 DUP (0)                                                   ;g
-                   db  20 DUP (0)                                                   ;h
-                   db  0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;i
+                   db  20 DUP (0)                                                   ;b
+                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0   ;c
+                   db  0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;d
+                   db  0, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;e
+                   db  0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;f
+                   db  0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;g
+                   db  0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;h
+                   db  20 DUP (0)                                                   ;i
                    db  20 DUP (0)                                                   ;j
-                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0   ;k
-                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;l
-                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;m 
-                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;n 
+                   db  0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;k
+                   db  0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;l
+                   db  0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;m
+                   db  20 DUP (0)                                                   ;n
                    db  20 DUP (0)                                                   ;o
                    db  20 DUP (0)                                                   ;p
-                   db  6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;q
-                   db  6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;r
-                   db  6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;s
+                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 6, 0, 0, 0, 0   ;q
+                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0   ;r
+                   db  0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;s
                    db  20 DUP (0)                                                   ;t
 
-    m_embarcacoes3 db  20 DUP (0)                                                   ;a
-                   db  0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;b
+    m_embarcacoes3 db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0   ;a
+                   db  20 DUP (0)                                                   ;b
                    db  20 DUP (0)                                                   ;c
                    db  20 DUP (0)                                                   ;d
                    db  20 DUP (0)                                                   ;e
-                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0   ;f
-                   db  20 DUP (0)                                                   ;g
-                   db  20 DUP (0)                                                   ;h
-                   db  0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;i
-                   db  20 DUP (0)                                                   ;j
-                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0   ;k
-                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;l
-                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;m
-                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;n
-                   db  20 DUP (0)                                                   ;o
-                   db  20 DUP (0)                                                   ;p
-                   db  6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;q
-                   db  6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;r
-                   db  6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;s
-                   db  20 DUP (0)                                                   ;t
+                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0   ;f
+                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 0   ;g
+                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0   ;h
+                   db  2, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;i
+                   db  2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;j
+                   db  2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;k
+                   db  20 DUP (0)                                                   ;l
+                   db  20 DUP (0)                                                   ;m
+                   db  20 DUP (0)                                                   ;n
+                   db  0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;o
+                   db  0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;p
+                   db  0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;q
+                   db  20 DUP (0)                                                   ;r
+                   db  20 DUP (0)                                                   ;s
+                   db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0   ;t
 
     m_embarcacoes4 db  20 DUP (0)                                                   ;a
                    db  0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ;b
@@ -204,17 +200,17 @@ endm
     s_digite_coluna         db 10, 13, 'ESCOLHA UMA COLUNA PARA ATIRAR [1 - 20]: $'
     s_digite_novamente      db 10, 13, 'ESSA POSICAO NAO ESTA NO INTERVALO, DIGITE OUTRA: $'
 
-    s_arcertou_encouracado  db         'VOCE ACERTOU O ENCOURACADO!!!$'
-    s_arcertou_fragata      db         'VOCE ACERTOU A FRAGATA!!!$'
-    s_arcertou_subma        db         'VOCE ACERTOU UM SUBMARINO!!!$'
-    s_arcertou_hidroaviao   db         'VOCE ACERTOU UM HIDROAVIAO!!!$'
-    s_errou                 db         'VOCE NAO ACERTOU NENHUMA EMBARCACAO :($'
+    s_arcertou_encouracado  db 10, 13, '    VOCE ACERTOU O ENCOURACADO!$'
+    s_arcertou_fragata      db 10, 13, '    VOCE ACERTOU A FRAGATA!$'
+    s_arcertou_subma        db 10, 13, '    VOCE ACERTOU UM SUBMARINO!$'
+    s_arcertou_hidroaviao   db 10, 13, '    VOCE ACERTOU UM HIDROAVIAO!$'
+    s_errou                 db 10, 13, '    VOCE NAO ACERTOU NENHUMA EMBARCACAO :($'
 
-    s_afundou_encouracado   db 10, 13, 'VOCE AFUNDOU O ENCOURACADO.$'
-    s_afundou_fragata       db 10, 13, 'VOCE AFUNDOU A FRAGATA.$'
-    s_afundou_submarino     db 10, 13, 'VOCE AFUNDOU UM SUBMARINO.$'
-    s_afundou_hidroaviao    db 10, 13, 'VOCE AFUNDOU UM HIDROAVIAO.$'
-    s_outra_posicao         db 10,13, 'VOCE JA ATIROU NESSA POSICAO, TENTE OUTRA. DIGITE QUALQUER TECLA PARA PROSSEGUIR  $'
+    s_afundou_encouracado   db 10, 13, '    VOCE AFUNDOU O ENCOURACADO!!!$'
+    s_afundou_fragata       db 10, 13, '    VOCE AFUNDOU A FRAGATA!!!$'
+    s_afundou_submarino     db 10, 13, '    VOCE AFUNDOU UM SUBMARINO!!!$'
+    s_afundou_hidroaviao    db 10, 13, '    VOCE AFUNDOU UM HIDROAVIAO!!!$'
+    s_outra_posicao         db 10, 13, 'VOCE JA ATIROU NESSA POSICAO, TENTE OUTRA. DIGITE QUALQUER TECLA PARA PROSSEGUIR  $'
 
     s_continua              db 10, 13, 'ATIRAR NOVAMENTE? [s|n]$'
     s_ver_acertos           db 10, 13, 'DESEJA VER SUA QUANTIDADE DE ACERTOS? [s|n]: $'
@@ -230,7 +226,6 @@ endm
 
     s_venceu                db 10, 13, 'FIM DE JOGO! VOCE AFUNDOU TODAS AS EMBARCACOES :D$'
     s_perdeu                db 10, 13, 'FIM DE JOGO! INFELIZMENTE NAO FOI DESSA VEZ... $'
-    s_matriz_final          db 10, 13, 'AQUI ESTA A MATRIZ FINAL: $'
 
     v_acertos               db 6 dup (0)
     v_contagem              db 0
@@ -296,6 +291,7 @@ endm
         r_vitoria: ;impressão da vitória
             clearscreen
             string s_venceu
+            
 
         r_fim:
             mov ah, 4ch
@@ -498,7 +494,7 @@ endm
 
             r_afundou_submarino_2: ;caso tenha acertado um dos submarinos
                 call p_submarino_2
-                cmp cl, 2
+                cmp cl, 4
                 jne r_fim_leitura
                 string s_afundou_submarino
                 jmp r_fim_leitura
@@ -694,19 +690,26 @@ endm
         string s_menu_total ;imprime a quantidade de acertos geral
         xor cx, cx
         mov bx, 10
-        xor ah, ah
+        cmp v_acertos[6], 10
+        jae r__acertos_geral
+        mov ah, 02h
+        mov dl, v_acertos[6]
+        or dl, 30h
+        int 21h
+        jmp r_fim_menu
+
         mov al, v_acertos[6]
         r__acertos_geral:
             xor dx, dx
             div bx
             push dx 
             inc cx
-            cmp ax, 0
-            je r_imprime_acertos_geral
+            cmp ax, 00h
+            jne r_imprime_acertos_geral
             jmp r__acertos_geral
 
         r_imprime_acertos_geral:
-            mov ah, 2
+            mov ah, 02h
             pop dx 
             or dx, 30h
             int 21h
@@ -722,105 +725,70 @@ endm
         ret ;volta para o main
     p_menu endp
 
-p_encouracado proc ;incrementa a quantidade de acertos do encouracado e geral
-    mov m_tiros[bx][si], 1
-    pula_linha
-    espaco
-    espaco
-    espaco
-    espaco
-    string s_arcertou_encouracado
-    xor di, di
-    inc v_acertos[di]
-    mov cl, v_acertos[di]
-    inc v_acertos[6]           
-    ret
-p_encouracado endp
+    p_encouracado proc ;incrementa a quantidade de acertos do encouracado e geral
+        mov m_tiros[bx][si], 1
+        string s_arcertou_encouracado
+        xor di, di
+        inc v_acertos[di]
+        mov cl, v_acertos[di]
+        inc v_acertos[6]           
+        ret
+    p_encouracado endp
 
-p_fragata proc ;incrementa a quantidade de acertos da fragata e geral
-    mov m_tiros[bx][si], 2
-    pula_linha
-    espaco
-    espaco
-    espaco
-    espaco
-    string s_arcertou_fragata
-    mov di, 1
-    inc v_acertos[di]
-    mov cl, v_acertos[di]
-    inc v_acertos[6]
-    ret
-p_fragata  endp
+    p_fragata proc ;incrementa a quantidade de acertos da fragata e geral
+        mov m_tiros[bx][si], 2
+        string s_arcertou_fragata
+        mov di, 1
+        inc v_acertos[di]
+        mov cl, v_acertos[di]
+        inc v_acertos[6]
+        ret
+    p_fragata  endp
 
-p_submarino_1 proc ;incrementa a quantidade de acertos do submarino 1 e geral
-    mov m_tiros[bx][si], 3
-    pula_linha
-    espaco
-    espaco
-    espaco
-    espaco
-    string s_arcertou_subma
-    mov di, 2
-    inc v_acertos[di]
-    mov cl, v_acertos[di]
-    inc v_acertos[6]
-    ret
-p_submarino_1 endp
+    p_submarino_1 proc ;incrementa a quantidade de acertos do submarino 1 e geral
+        mov m_tiros[bx][si], 3
+        string s_arcertou_subma
+        mov di, 2
+        inc v_acertos[di]
+        mov cl, v_acertos[di]
+        inc v_acertos[6]
+        ret
+    p_submarino_1 endp
 
-p_submarino_2 proc ;incrementa a quantidade de acertos do submarino 2 e geral
-    mov m_tiros[bx][si], 4
-    pula_linha
-    espaco
-    espaco
-    espaco
-    espaco
-    string s_arcertou_subma
-    mov di, 3
-    inc v_acertos[di]
-    mov cl, v_acertos[di]
-    inc v_acertos[6]
-    ret
-p_submarino_2 endp
+    p_submarino_2 proc ;incrementa a quantidade de acertos do submarino 2 e geral
+        mov m_tiros[bx][si], 4
+        string s_arcertou_subma
+        mov di, 3
+        inc v_acertos[di]
+        mov cl, v_acertos[di]
+        inc v_acertos[6]
+        ret
+    p_submarino_2 endp
 
-p_hidroaviao_1 proc ;incrementa a quantidade de acertos do hidroaviao 1 e geral
-    mov m_tiros[bx][si], 5
-    pula_linha
-    espaco
-    espaco
-    espaco
-    espaco
-    string s_arcertou_hidroaviao
-    mov di, 4
-    inc v_acertos[di]
-    mov cl, v_acertos[di]
-    inc v_acertos[6]
-    ret
-p_hidroaviao_1 endp
+    p_hidroaviao_1 proc ;incrementa a quantidade de acertos do hidroaviao 1 e geral
+        mov m_tiros[bx][si], 5
+        string s_arcertou_hidroaviao
+        mov di, 4
+        inc v_acertos[di]
+        mov cl, v_acertos[di]
+        inc v_acertos[6]
+        ret
+    p_hidroaviao_1 endp
 
-p_hidroaviao_2 proc ;incrementa a quantidade de acertos do hidroaviao 2 e geral
-    mov m_tiros[bx][si], 6
-    pula_linha
-    espaco
-    espaco
-    espaco
-    espaco
-    string s_arcertou_hidroaviao
-    mov di, 5
-    inc v_acertos[di]
-    mov cl, v_acertos[di]
-    inc v_acertos[6]
-    ret 
-p_hidroaviao_2 endp
+    p_hidroaviao_2 proc ;incrementa a quantidade de acertos do hidroaviao 2 e geral
+        mov m_tiros[bx][si], 6
+        string s_arcertou_hidroaviao
+        mov di, 5
+        inc v_acertos[di]
+        mov cl, v_acertos[di]
+        inc v_acertos[6]
+        ret 
+    p_hidroaviao_2 endp
 
-p_erro proc ;imprime um 'X' caso o tiro não tenha acertado nenhuma embarcação
-    pula_linha
-    espaco
-    espaco
-    espaco
-    espaco
-    string s_errou
-    mov m_tiros[bx][si], 'x'
-    ret
-p_erro endp
+    p_erro proc ;imprime um 'X' caso o tiro não tenha acertado nenhuma embarcação
+        string s_errou
+        mov m_tiros[bx][si], 'x'
+        ret
+    p_erro endp
 
 end main
