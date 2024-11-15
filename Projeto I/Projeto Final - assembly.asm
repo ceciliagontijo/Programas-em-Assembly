@@ -494,7 +494,7 @@ endm
 
             r_afundou_submarino_2: ;caso tenha acertado um dos submarinos
                 call p_submarino_2
-                cmp cl, 4
+                cmp cl, 2
                 jne r_fim_leitura
                 string s_afundou_submarino
                 jmp r_fim_leitura
