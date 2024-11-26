@@ -40,6 +40,7 @@ fim:
     mov ah, 9
     lea dx, msg
     int 21h
+    
     mov cx, bx
     mov ah, 2
     mov dl, bl
