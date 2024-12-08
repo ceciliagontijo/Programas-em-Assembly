@@ -20,15 +20,16 @@ main proc
     mov ax, @data
     mov ds, ax
 
-    xor si, si
-    mov di, 12
-    xor bx, bx
+    xor si,si
+    xor di, di
+    mov bx, 3
     mov cx, 4
 troca:
     mov al, matriz[si][bx]
-    xchg matriz[di][bx], al
+    xchg matriz[di][3], al
     mov matriz[si][bx], al
-    inc bx
+    dec bx
+    add di, 4
 loop troca
 
     mov di, 4

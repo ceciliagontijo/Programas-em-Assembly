@@ -13,8 +13,8 @@ title maior e menor matriz
 main proc 
     mov ax, @data
     mov ds, ax
-
-    lea di, matriz
+    mov es,ax
+    lea si, matriz
     cld
     xor bx, bx
     xor dx, dx
